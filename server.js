@@ -3,6 +3,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import morgan from 'morgan'
 import path from 'path'
+import cors from 'cors'
 
 import authRoutes from './app/auth/auth.routes.js'
 import userRoutes from './app/user/user.routes.js'
@@ -20,6 +21,7 @@ async function main() {
 		app.use(morgan('dev'))
 	}
 
+	app.use(cors())
 	app.use(express.json())
 
 	const __dirname = path.resolve()
